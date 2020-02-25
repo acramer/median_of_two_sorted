@@ -27,6 +27,7 @@ class TestMedian_Calculator(TestCase):
     # read
     # ----
 
+    A
     def test_read(self):
         s = "1 10\n"
         i = median_read(s)
@@ -62,71 +63,180 @@ class TestMedian_Calculator(TestCase):
         self.assertEqual(v, 555)
 
     # Non-Overlapping Lists
-    #    (Same Sizes)
-    def test_NoOver_1(self):
+    # ---NoOver---(Larger Even Above Even)
+    # ---NoOver---(Larger Even Above Odd)
+    # ---NoOver---(Larger Odd Above Even)
+    # ---NoOver---(Larger Odd Above Odd)
+    # ---NoOver---(Larger Even Above Even Equal Ends)
+    # ---NoOver---(Larger Even Above Odd Equal Ends)
+    # ---NoOver---(Larger Odd Above Even Equal Ends)
+    # ---NoOver---(Larger Odd Above Odd Equal Ends)
+    # ---NoOver---(Larger Even Above Even Equal Ins)
+    # ---NoOver---(Larger Even Above Odd Equal Ins)
+    # ---NoOver---(Larger Odd Above Even Equal Ins)
+    # ---NoOver---(Larger Odd Above Odd Equal Ins)
+    # ---NoOver---(Smaller Even Above Even)
+    # ---NoOver---(Smaller Even Above Odd)
+    # ---NoOver---(Smaller Odd Above Even)
+    # ---NoOver---(Smaller Odd Above Odd)
+    # ---NoOver---(Smaller Even Above Even Equal Ends)
+    # ---NoOver---(Smaller Even Above Odd Equal Ends)
+    # ---NoOver---(Smaller Odd Above Even Equal Ends)
+    # ---NoOver---(Smaller Odd Above Odd Equal Ends)
+    # ---NoOver---(Smaller Even Above Even Equal Ins)
+    # ---NoOver---(Smaller Even Above Odd Equal Ins)
+    # ---NoOver---(Smaller Odd Above Even Equal Ins)
+    # ---NoOver---(Smaller Odd Above Odd Equal Ins)
+    # ---NoOver---(Equal Even Above Even)
+    # ---NoOver---(Equal Even Above Odd)
+    # ---NoOver---(Equal Odd Above Even)
+    # ---NoOver---(Equal Odd Above Odd)
+    # ---NoOver---(Equal Even Above Even Equal Ends)
+    # ---NoOver---(Equal Even Above Odd Equal Ends)
+    # ---NoOver---(Equal Odd Above Even Equal Ends)
+    # ---NoOver---(Equal Odd Above Odd Equal Ends)
+    # ---NoOver---(Equal Even Above Even Equal Ins)
+    # ---NoOver---(Equal Even Above Odd Equal Ins)
+    # ---NoOver---(Equal Odd Above Even Equal Ins)
+    # ---NoOver---(Equal Odd Above Odd Equal Ins)
+    # ---NoOver---(Larger Even Above Tiny Even)
+    # ---NoOver---(Larger Even Above Tiny Odd)
+    # ---NoOver---(Larger Odd Above Tiny Even)
+    # ---NoOver---(Larger Odd Above Tiny Odd)
+    # ---NoOver---(Larger Even Above Tiny Even Equal Ends)
+    # ---NoOver---(Larger Even Above Tiny Odd Equal Ends)
+    # ---NoOver---(Larger Odd Above Tiny Even Equal Ends)
+    # ---NoOver---(Larger Odd Above Tiny Odd Equal Ends)
+    # ---NoOver---(Larger Even Above Tiny Even Equal Ins)
+    # ---NoOver---(Larger Even Above Tiny Odd Equal Ins)
+    # ---NoOver---(Larger Odd Above Tiny Even Equal Ins)
+    # ---NoOver---(Larger Odd Above Tiny Odd Equal Ins)
+    # ---NoOver---()
+
+    # Overlapping Lists
+    # ----Over----(Larger Even Above Even)
+    # ----Over----(Larger Even Above Odd)
+    # ----Over----(Larger Odd Above Even)
+    # ----Over----(Larger Odd Above Odd)
+    # ----Over----(Larger Even Above Even Equal Ends)
+    # ----Over----(Larger Even Above Odd Equal Ends)
+    # ----Over----(Larger Odd Above Even Equal Ends)
+    # ----Over----(Larger Odd Above Odd Equal Ends)
+    # ----Over----(Larger Even Above Even Equal Ins)
+    # ----Over----(Larger Even Above Odd Equal Ins)
+    # ----Over----(Larger Odd Above Even Equal Ins)
+    # ----Over----(Larger Odd Above Odd Equal Ins)
+    # ----Over----(Smaller Even Above Even)
+    # ----Over----(Smaller Even Above Odd)
+    # ----Over----(Smaller Odd Above Even)
+    # ----Over----(Smaller Odd Above Odd)
+    # ----Over----(Smaller Even Above Even Equal Ends)
+    # ----Over----(Smaller Even Above Odd Equal Ends)
+    # ----Over----(Smaller Odd Above Even Equal Ends)
+    # ----Over----(Smaller Odd Above Odd Equal Ends)
+    # ----Over----(Smaller Even Above Even Equal Ins)
+    # ----Over----(Smaller Even Above Odd Equal Ins)
+    # ----Over----(Smaller Odd Above Even Equal Ins)
+    # ----Over----(Smaller Odd Above Odd Equal Ins)
+    # ----Over----(Equal Even Above Even)
+    # ----Over----(Equal Even Above Odd)
+    # ----Over----(Equal Odd Above Even)
+    # ----Over----(Equal Odd Above Odd)
+    # ----Over----(Equal Even Above Even Equal Ends)
+    # ----Over----(Equal Even Above Odd Equal Ends)
+    # ----Over----(Equal Odd Above Even Equal Ends)
+    # ----Over----(Equal Odd Above Odd Equal Ends)
+    # ----Over----(Equal Even Above Even Equal Ins)
+    # ----Over----(Equal Even Above Odd Equal Ins)
+    # ----Over----(Equal Odd Above Even Equal Ins)
+    # ----Over----(Equal Odd Above Odd Equal Ins)
+    # ----Over----(Larger Even Above Tiny Even)
+    # ----Over----(Larger Even Above Tiny Odd)
+    # ----Over----(Larger Odd Above Tiny Even)
+    # ----Over----(Larger Odd Above Tiny Odd)
+    # ----Over----(Larger Even Above Tiny Even Equal Ends)
+    # ----Over----(Larger Even Above Tiny Odd Equal Ends)
+    # ----Over----(Larger Odd Above Tiny Even Equal Ends)
+    # ----Over----(Larger Odd Above Tiny Odd Equal Ends)
+    # ----Over----(Larger Even Above Tiny Even Equal Ins)
+    # ----Over----(Larger Even Above Tiny Odd Equal Ins)
+    # ----Over----(Larger Odd Above Tiny Even Equal Ins)
+    # ----Over----(Larger Odd Above Tiny Odd Equal Ins)
+    # ----Over----()
+    def test_Over_1(self):
         l1 = [1,2,3]
         l2 = [4,5,6]
         v = median_eval(l1,l2)
         self.assertEqual(v, 3.5)
 
-    def test_NoOver_1r(self):
-        l1 = [1,2,3]
-        l2 = [4,5,6]
+    def test_Over_1r(self):
         v = median_eval(l2,l1)
         self.assertEqual(v, 3.5)
 
-    def test_NoOver_2(self):
+    def test_Over_2(self):
         l1 = [1,2,3]
         l2 = [5,6,7]
         v = median_eval(l1,l2)
         self.assertEqual(v, 4.0)
 
-    def test_NoOver_2r(self):
-        l1 = [1,2,3]
-        l2 = [5,6,7]
+    def test_Over_2r(self):
         v = median_eval(l2,l1)
         self.assertEqual(v, 4.0)
 
     #    (Different Sizes)
-    def test_NoOver_3(self):
+    def test_Over_3(self):
         l1 = [1,2,3]
         l2 = [5,6]
         v = median_eval(l1,l2)
         self.assertEqual(v, 3.0)
 
-    def test_NoOver_3r(self):
-        l1 = [1,2,3]
-        l2 = [5,6]
+    def test_Over_3r(self):
         v = median_eval(l2,l1)
         self.assertEqual(v, 3.0)
 
-    def test_NoOver_4(self):
+    def test_Over_4(self):
         l1 = [1,2,3,4]
         l2 = [5,6]
         v = median_eval(l1,l2)
         self.assertEqual(v, 3.5)
 
-    def test_NoOver_4r(self):
-        l1 = [1,2,3,4]
-        l2 = [5,6]
+    def test_Over_4r(self):
         v = median_eval(l2,l1)
         self.assertEqual(v, 3.5)
 
-    def test_NoOver_5(self):
+    def test_Over_5(self):
         l1 = [1,2,3,4,5]
         l2 = [6,7]
         v = median_eval(l1,l2)
         self.assertEqual(v, 4)
 
-    def test_NoOver_5r(self):
-        l1 = [1,2,3,4,5]
-        l2 = [6,7]
+    def test_Over_5r(self):
         v = median_eval(l2,l1)
         self.assertEqual(v, 4)
-
-    # Overlapping Lists
 
     # Container Lists
+    #    (Even Contains Odd)
+    #    (Even Contains Even)
+    #    (Odd Contains Odd)
+    #    (Odd Contains Even)
+    #    ()
+    #    (Larger Even Above Even)
+    #    (Larger Even Above Odd)
+    #    (Larger Odd Above Even)
+    #    (Larger Odd Above Odd)
+    #    (Smaller Even Above Even)
+    #    (Smaller Even Above Odd)
+    #    (Smaller Odd Above Even)
+    #    (Smaller Odd Above Odd)
+    #    (Equal Even Above Even)
+    #    (Equal Even Above Odd)
+    #    (Equal Odd Above Even)
+    #    (Equal Odd Above Odd)
+    #    (Larger Even Above Tiny Even)
+    #    (Larger Even Above Tiny Odd)
+    #    (Larger Odd Above Tiny Even)
+    #    (Larger Odd Above Tiny Odd)
+    #    ()
 
     # -----
     # print
